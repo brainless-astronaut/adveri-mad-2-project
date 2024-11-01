@@ -1,0 +1,9 @@
+.venv
+.vscode
+backend/app/__pycache__
+backend/instance
+frontend/node_modules
+rough/.venv
+rough/backend/__pycache__
+rough/backend/instance
+rough/frontend/node_modules

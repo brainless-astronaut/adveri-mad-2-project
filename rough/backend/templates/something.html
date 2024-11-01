@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Report</title>
+    <style>
+        :root {
+            --davys-gray: #555555ff;
+            --rose-quartz: #a499beff;
+            --eggshell: #f0ead6ff;
+            --bittersweet-shimmer: #bf4f51ff;
+            --charcoal: #36454fff;
+
+        }
+        @import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700italic,700,900italic,900);
+        @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
+        @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
+        body{
+            background-color: var(--charcoal);
+        }
+        #generic_price_table{
+            background-color: var(--price-table);
+        }
+        #generic_price_table .generic_content{
+            background-color: var(--charcoal);
+        }
+        #generic_price_table .generic_content .generic_head_price{
+            background-color: var(--bittersweet-shimmer);
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_head_content .head_bg{
+            border-color: var(--eggshell) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--davys-gray);
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_head_content .head span{
+            color: var(--davys-gray);
+        }
+        #generic_price_table .generic_content .generic_feature_list ul li{	
+            color: var(--charcoal);
+            background-color: var(--eggshell);
+        }
+        #generic_price_table .generic_content .generic_feature_list ul li:hover{
+            background-color: var(--davys-gray);
+            border-left: 5px solid var(--bittersweet-shimmer);
+            color: var(--eggshell)
+        }
+        #generic_price_table .generic_content.active .generic_head_price .generic_head_content .head_bg,
+        #generic_price_table .generic_content:hover .generic_head_price .generic_head_content .head_bg{
+            border-color: lightgrey rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) grey;
+            color: var(--charcoal);
+        }
+        #generic_price_table .generic_content:hover .generic_head_price .generic_head_content .head span,
+        #generic_price_table .generic_content.active .generic_head_price .generic_head_content .head span{
+            color: var(--charcoal);
+        }
+        #generic_price_table{
+            margin: 50px 0 50px 0;
+            font-family: 'Raleway', sans-serif;
+        }
+        .row .table{
+            padding: 28px 0;
+        }
+        #generic_price_table .generic_content{
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+        #generic_price_table .generic_content .generic_head_price {
+            margin: 0 0 20px 0;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_head_content{
+            margin: 0 0 50px 0;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_head_content .head_bg{
+            border-style: solid;
+            border-width: 90px 1411px 23px 399px;
+            position: absolute;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_head_content .head{
+            padding-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_head_content .head span{
+            font-family: "Raleway",sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_price_tag{
+            padding: 0 0 20px;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_price_tag .price{
+            display: block;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_price_tag .price .sign{
+            display: inline-block;
+            font-family: "Lato",sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            vertical-align: middle;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_price_tag .price .currency{
+            font-family: "Lato",sans-serif;
+            font-size: 60px;
+            font-weight: 300;
+            letter-spacing: -2px;
+            line-height: 60px;
+            padding: 0;
+            vertical-align: middle;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_price_tag .price .cent{
+            display: inline-block;
+            font-family: "Lato",sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            vertical-align: bottom;
+        }
+        #generic_price_table .generic_content .generic_head_price .generic_price_tag .month{
+            font-family: "Lato",sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            vertical-align: bottom;
+        }
+        #generic_price_table .generic_content .generic_feature_list ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #generic_price_table .generic_content .generic_feature_list ul li{
+            font-family: "Lato",sans-serif;
+            font-size: 18px;
+            padding: 15px 0;
+            transition: all 0.3s ease-in-out 0s;
+        }
+        #generic_price_table .generic_content .generic_feature_list ul li:hover{
+            transition: all 0.3s ease-in-out 0s;
+            -moz-transition: all 0.3s ease-in-out 0s;
+            -ms-transition: all 0.3s ease-in-out 0s;
+            -o-transition: all 0.3s ease-in-out 0s;
+            -webkit-transition: all 0.3s ease-in-out 0s;
+
+        }
+        #generic_price_table .generic_content .generic_feature_list ul li .fa{
+            padding: 0 10px;
+        }
+        #generic_price_table .generic_content {
+            margin: 20px 0 32px;
+        }
+
+        #generic_price_table .generic_content a{
+            border-radius: 50px;
+            -moz-border-radius: 50px;
+            -ms-border-radius: 50px;
+            -o-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            display: inline-block;
+            font-family: "Lato",sans-serif;
+            font-size: 18px;
+            outline: medium none;
+            padding: 12px 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        #generic_price_table .generic_content,
+        #generic_price_table .generic_content:hover,
+        #generic_price_table .generic_content .generic_head_price .generic_head_content .head_bg,
+        #generic_price_table .generic_content:hover .generic_head_price .generic_head_content .head_bg,
+        #generic_price_table .generic_content .generic_head_price .generic_head_content .head h2,
+        #generic_price_table .generic_content:hover .generic_head_price .generic_head_content .head h2,
+        #generic_price_table .generic_content .price,
+        #generic_price_table .generic_content:hover .price,
+        #generic_price_table .generic_content a,
+        #generic_price_table .generic_content:hover a{
+            transition: all 0.3s ease-in-out 0s;
+            -moz-transition: all 0.3s ease-in-out 0s;
+            -ms-transition: all 0.3s ease-in-out 0s;
+            -o-transition: all 0.3s ease-in-out 0s;
+            -webkit-transition: all 0.3s ease-in-out 0s;
+        } 
+        @media (max-width: 320px) {	
+        }
+
+        @media (max-width: 767px) {
+            #generic_price_table .generic_content{
+                margin-bottom:75px;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+            #generic_price_table .col-md-3{
+                float:left;
+                width:50%;
+            }
+            
+            #generic_price_table .col-md-4{
+                float:left;
+                width:50%;
+            }
+            
+            #generic_price_table .generic_content{
+                margin-bottom:75px;
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1199px) {
+        }
+        @media (min-width: 1200px) {
+        }
+        
+        .demo-pic{
+            margin: 0 auto;
+        }
+        .demo-pic:hover{
+            opacity: 0.7;
+        }
+
+
+        .price-heading{
+            text-align: center;
+        }
+        .price-heading h1{
+            color: var(--davys-gray);
+            margin: 0;
+            padding: 0 0 50px 0;
+        }
+    </style>
+
+    </head>
+    <body>
+        <div id="generic_price_table">   
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="price-heading clearfix">
+                                <h1>Monthly Campaigns Progress Report for {{ user.entity_name }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        {% for campaign in campaign_details %}
+                        <div class="col-md-4">
+                            <div class="generic_content clearfix">
+                                <div class="generic_head_price clearfix">
+                                    <div class="generic_head_content clearfix">
+                                        <div class="head_bg"></div>
+                                        <div class="head">
+                                            <span>{{ campaign.name }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="generic_price_tag clearfix">	
+                                        <span class="price">
+                                            <span>{{ campaign.description }}</span>
+                                        </span>
+                                    </div>
+                                </div>                            
+                                <div class="generic_feature_list">
+                                    <ul>
+                                        <li>Reach: {{ campaign.campaign_reach }}</li>
+                                        <li>Goals Met: {{ campaign.goals_met }}</li>
+                                        <li>Budget: {{ campaign.budget }}</li>
+                                        <li>Visibility: {{ campaign.visibility }}</li>
+                                        <li>Start Date: {{ campaign.start_date }}</li>
+                                        <li>End Date: {{ campaign.end_date }}</li>
+                                        <div class="generic_price_tag clearfix">	
+                                            <span class="price">
+                                                <span class="sign">$</span>
+                                                <span class="currency">{{ campaign.expenditure }}</span>
+                                                <span class="cent"></span>
+                                                <span class="month">Spent</span>
+                                            </span>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>             
+            <footer>
+
+            </footer>
+        </div>
+    </body>
+</html>

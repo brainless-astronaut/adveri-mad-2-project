@@ -1,0 +1,12 @@
+celery
+datetime
+flask
+flask-bcrypt
+flask-caching
+flask-cors
+flask-jwt-extended
+flask-mail
+flask-restful
+flask-sqlalchemy
+matplotlib
+redis

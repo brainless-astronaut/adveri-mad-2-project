@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Daily Reminder</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+        <style>
+            :root {
+                --thunderhead: #26424f;
+                --text-color: #cfd8dc;
+            }
+            body {
+                background-color: var(--thunderhead);
+                color: var(--text-color);
+                font-family: 'Eagle Lake', 'Work Sans', sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hey {{user.name}}!</h1>
+        <p>You are receiving this email since you haven't logged into AdVeri for the past 24 hours.</p>
+        <hr>
+        <p>Check in to see your progress in your ventures!</p>
+    </body>
+</html>
